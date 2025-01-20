@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Shop</title>
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #e94e77;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        .menu-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .menu-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .menu-item h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .order-form {
+            background-color: white;
+            padding: 20px;
+            width: 400px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-form input, .order-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .order-form button {
+            background-color: #e94e77;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 4px;
+        }
+
+        .order-form button:hover {
+            background-color: #d23f61;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Our Pizza Shop</h1>
+    </header>
+
+    <section class="menu-section">
+        <div class="menu-item">
+            <img src="pizza1.jpg" alt="Margherita Pizza">
+            <h3>Margherita Pizza</h3>
+            <p>Classic pizza with fresh tomatoes, mozzarella, and basil.</p>
+        </div>
+        <div class="menu-item">
+            <img src="pizza2.jpg" alt="Pepperoni Pizza">
+            <h3>Pepperoni Pizza</h3>
+            <p>Delicious pizza with pepperoni slices and mozzarella.</p>
+        </div>
+        <div class="menu-item">
+            <img src="pizza3.jpg" alt="Vegetarian Pizza">
+            <h3>Vegetarian Pizza</h3>
+            <p>Fresh veggies topped with mozzarella and tomato sauce.</p>
+        </div>
+    </section>
+
+    <section class="order-form">
+        <h2>Order Your Pizza</h2>
+        <form id="orderForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="pizza">Choose Your Pizza:</label>
+            <select id="pizza" name="pizza">
+                <option value="margherita">Margherita</option>
+                <option value="pepperoni">Pepperoni</option>
+                <option value="vegetarian">Vegetarian</option>
+            </select>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Pizza Shop | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // JavaScript for form validation and handling
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const pizza = document.getElementById('pizza').value;
+            const quantity = document.getElementById('quantity').value;
+
+            if (name && pizza && quantity) {
+                alert(`Thank you for your order, ${name}! You have ordered ${quantity} ${pizza} pizza(s).`);
+                // Optionally, reset the form
+                document.getElementById('orderForm').reset();
+            } else {
+                alert("Please fill in all fields.");
+            }
+        });
+    </script>
+
+</body>
+</html>
